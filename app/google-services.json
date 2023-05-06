@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "63486946665",
+    "project_id": "chat-app-5b399",
+    "storage_bucket": "chat-app-5b399.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:63486946665:android:14045594d8a2ec8666e1f8",
+        "android_client_info": {
+          "package_name": "com.abdo.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "63486946665-vhli95g8nn091boprtqtj5spao42sbvd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.abdo.chatapp",
+            "certificate_hash": "05fc349ae579f0223b1ca087890d17745e0c2cff"
+          }
+        },
+        {
+          "client_id": "63486946665-qq973q2k326gv9l83kpug60vciketgb0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiXSYZHrx5Q6lvA-_k_WeQ_CWh0yFhMpk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "63486946665-qq973q2k326gv9l83kpug60vciketgb0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
