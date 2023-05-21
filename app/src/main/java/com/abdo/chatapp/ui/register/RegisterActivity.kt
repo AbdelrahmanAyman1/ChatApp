@@ -8,15 +8,17 @@ import com.abdo.chatapp.base.BaseActivity
 import com.abdo.chatapp.databinding.ActivityRegisterBinding
 import com.abdo.chatapp.ui.home.HomeActivity
 
-class RegisterActivity : BaseActivity<ActivityRegisterBinding,RegisterViewModel>(),Navigator {
+class RegisterActivity : BaseActivity<ActivityRegisterBinding,
+        RegisterViewModel>(), Navigator {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewDataBinding.vm=viewModel
-        viewModel.navigator=this
+        viewDataBinding.vm = viewModel
+        viewModel.navigator = this
 
     }
+
     override fun getLayoutId(): Int {
         return R.layout.activity_register
     }
@@ -28,5 +30,6 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding,RegisterViewModel>
     override fun openHomeScreen() {
         val intent=Intent(this,HomeActivity::class.java)
         startActivity(intent)
+        finish()
     }
 }

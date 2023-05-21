@@ -7,16 +7,14 @@
 
         <variable
             name="vm"
-            type="com.abdo.chatapp.ui.login.LoginViewModel" />
+            type="com.abdo.chatapp.ui.addRoom.AddRoomViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background"
-        tools:context=".ui.login.LoginActivity"
-
-        >
+        tools:context=".ui.addRoom.AddRoomActivity">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
@@ -37,10 +35,9 @@
                     android:layout_height="match_parent">
 
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Login"
+                        android:text="Add Room"
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         android:textStyle="bold"
@@ -51,124 +48,100 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
-        />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guide_line"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent=".3" />
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@id/guide_line">
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="100dp"
-                    android:text="Welcome back!"
+                    android:layout_gravity="center|top"
+                    android:text="Create new room"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-                    />
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/create_room_logo" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/E_mail_layout"
+                    android:id="@+id/room_name_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="20dp"
-                    android:hint="E-mail address"
+                    android:hint="Enter Room Name"
                     app:boxBackgroundColor="@color/light_blue"
                     app:boxStrokeColor="@color/light_blue"
-                    app:error="@{vm.emailError}"
-
-                    >
+                    app:error="@{vm.roomNameError}">
 
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
-                        android:inputType="textEmailAddress"
-                        android:lines="1"
-                        android:maxLines="1"
-                        android:text="@={vm.email}" />
+                        android:text="@={vm.roomName}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:padding="4dp" />
+
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/password_layout"
+                    android:id="@+id/room_desc_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="20dp"
-                    android:elevation="5dp"
-                    android:hint="password"
+                    android:hint="Enter Room Description"
                     app:boxBackgroundColor="@color/light_blue"
                     app:boxStrokeColor="@color/light_blue"
-                    app:error="@{vm.passwordError}">
+                    app:error="@{vm.descError}">
 
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:autofillHints="password"
                         android:background="@color/white"
-                        android:inputType="textPassword"
-                        android:lines="1"
-                        android:maxLines="1"
-                        android:text="@={vm.password}" />
+                        android:text="@={vm.desc}" />
                 </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="30dp"
-                    android:text="Forgot password?"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-
-                    />
 
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:backgroundTint="@color/light_blue"
-                    android:onClick="@{()->vm.login()}"
-                    android:text="create account" />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:onClick="@{()->vm.openRegister()}"
-                    android:text="Or Create My Account"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-
-                    />
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:onClick="@{()->vm.createRoom()}"
+                    android:padding="10dp"
+                    android:text="create" />
             </LinearLayout>
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+        </androidx.cardview.widget.CardView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
